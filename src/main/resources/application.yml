@@ -34,14 +34,6 @@ management:
       prometheus:
         enabled: true
 
-bacen:
-  api:
-    uri: ${API_URI_BACEN:http://BACEN-SERVICE/api/bacen}
-
-cliente:
-  api:
-    uri: ${API_URI_CLIENTE:http://CADASTRO-CLIENTE-SERVICE/api/cliente/{cpfCliente}}
-
 logging:
   level:
     root: DEBUG
