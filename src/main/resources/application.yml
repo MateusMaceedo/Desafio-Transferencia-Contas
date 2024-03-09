@@ -1,0 +1,57 @@
+server:
+  port: 5001
+
+application:
+  name: ms-transferencia-contas
+  artifactId: ms-transferencia-contas
+  version: 0.1
+
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://host.docker.internal
+    username: user
+    password: password
+    initialization-mode: always
+
+aws:
+  execution: false
+  region: sa-east-1
+  sqs:
+    fila-envio-transferencia: ${SQS_FILA_TRANSFERENCIA:sqs-fila-transferencia}
+
+LOCAL_STACK: http://localhost:4566
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health, prometheus
+        exclude: env
+    prometheus:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+bacen:
+  api:
+    uri: ${API_URI_BACEN:http://BACEN-SERVICE/api/bacen}
+
+cliente:
+  api:
+    uri: ${API_URI_CLIENTE:http://CADASTRO-CLIENTE-SERVICE/api/cliente/{cpfCliente}}
+
+logging:
+  level:
+    root: DEBUG
+    web: DEBUG
+    sql: DEBUG
+    br.itau.transferenciacontas.saldostransferenciacontas: DEBUG
+
+log:
+  appender:
+    splunk:
+      level: INFO
+  console:
+    active: "true"
