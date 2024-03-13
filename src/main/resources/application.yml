@@ -1,0 +1,14 @@
+server:
+  port: 8081
+
+redis:
+  enabled: true
+  uri: redis://localhost:6379
+  ttl: 3600
+
+aws:
+  execution: false
+  endpoints:
+    dynamodb:
+      endpointOverride: http://localhost:4566
+  region: us-east-1

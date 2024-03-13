@@ -1,0 +1,66 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.3'
+	id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.itau.transferencia'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	implementation 'io.micrometer:micrometer-registry-prometheus'
+
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+	compileOnly 'org.projectlombok:lombok'
+
+	compileOnly 'org.projectlombok:lombok:1.18.20'
+
+	annotationProcessor 'org.projectlombok:lombok:1.18.20'
+
+	testImplementation 'io.projectreactor:reactor-test'
+
+	implementation 'org.springframework.cloud:spring-cloud-contract-wiremock:4.0.4'
+
+	implementation 'org.springframework.kafka:spring-kafka'
+
+	implementation 'javax.persistence:javax.persistence-api:2.2'
+
+	implementation 'software.amazon.awssdk:dynamodb:2.17.92'
+
+	implementation 'com.amazonaws:aws-java-sdk-dynamodb:1.12.676'
+
+	implementation 'com.github.derjust:spring-data-dynamodb:5.1.0'
+
+	implementation 'io.projectreactor:reactor-core:3.4.8'
+
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
+
+	implementation 'io.lettuce:lettuce-core:6.3.1.RELEASE'
+
+	implementation 'com.bucket4j:bucket4j-redis:8.2.0'
+
+	implementation 'com.bucket4j:bucket4j-core:8.7.0'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
