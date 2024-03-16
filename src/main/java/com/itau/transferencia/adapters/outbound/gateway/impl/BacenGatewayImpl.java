@@ -1,7 +1,7 @@
-package com.itau.transferencia.adapters.outbound.gateway;
+package com.itau.transferencia.adapters.outbound.gateway.impl;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
-import com.itau.transferencia.application.core.domain.AccountModel;
+import com.itau.transferencia.application.core.domain.dto.AccountDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -14,7 +14,7 @@ public class BacenGatewayImpl {
     @Autowired
     private WireMockServer wireMockServer;
 
-    public Mono<String> notify(final Mono<AccountModel> fromUser, final Mono<AccountModel> toAccount, final double toBeTransfered) {
+    public Mono<String> notify(final Mono<AccountDTO> fromUser, final Mono<AccountDTO> toAccount, final double toBeTransfered) {
         Random random = new Random();
         int i = random.nextInt(3);
         String uri;
@@ -26,8 +26,8 @@ public class BacenGatewayImpl {
         }
         return WebClient.create(wireMockServer.baseUrl())
                 .post()
-                .uri(uri).header("fromUser", String.valueOf(fromUser.map(AccountModel::getId)))
-                .header("toUser", String.valueOf(toAccount.map(AccountModel::getId)))
+                .uri(uri).header("fromUser", String.valueOf(fromUser.map(AccountDTO::getId)))
+                .header("toUser", String.valueOf(toAccount.map(AccountDTO::getId)))
                 .header("value", String.valueOf(toBeTransfered))
                 .retrieve().onStatus(httpStatus -> httpStatus.value() == 429,
                         clientResponse -> Mono.empty()).bodyToMono(String.class);

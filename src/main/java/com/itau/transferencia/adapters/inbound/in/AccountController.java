@@ -1,6 +1,6 @@
 //package com.itau.transferencia.adapters.inbound.in;
 //
-//import com.itau.transferencia.adapters.outbound.gateway.BacenGatewayImpl;
+//import com.itau.transferencia.adapters.outbound.gateway.impl.BacenGatewayImpl;
 //import com.itau.transferencia.adapters.outbound.gateway.UserGatewayImpl;
 ////import com.itau.transferencia.adapters.outbound.repository.AccountRepository;
 //import com.itau.transferencia.application.core.domain.AccountModel;

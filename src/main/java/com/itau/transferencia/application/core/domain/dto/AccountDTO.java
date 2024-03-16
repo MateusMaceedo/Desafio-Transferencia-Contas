@@ -12,4 +12,12 @@ public class AccountDTO implements Serializable {
     private String numeroContaCorrente;
     private String saldoAtual;
     private String sucesso;
+    private boolean ativa;
+    private double limiteDisponivel;
+    private double currency;
+    private String id;
+
+    public double getLimiteDisponivel() {
+        return limiteDisponivel;
+    }
 }

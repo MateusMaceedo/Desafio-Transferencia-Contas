@@ -17,4 +17,6 @@ public class TransferAccountDTO implements Serializable {
     private String numeroContaDestino;
     private String sucesso;
     private Long dataHoraExpiracaoDado;
+    private double toBeTranfered;
+    private String destination;
 }

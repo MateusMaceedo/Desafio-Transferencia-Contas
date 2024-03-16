@@ -8,6 +8,7 @@ import com.itau.transferencia.adapters.inbound.mapper.impl.AccountToAccountEntit
 import com.itau.transferencia.adapters.inbound.mapper.impl.TransferToTransferEntityMapper;
 import com.itau.transferencia.application.core.domain.dto.AccountDTO;
 import com.itau.transferencia.application.core.domain.dto.TransferAccountDTO;
+import reactor.core.publisher.Mono;
 
 public class AccountRepository {
     private final DynamoDBMapper dynamoDBMapper;
@@ -23,14 +24,15 @@ public class AccountRepository {
         this.transferToTransferEntityMapper = new TransferToTransferEntityMapper();
     }
 
-    public void save(AccountDTO accountDTO) {
+    public Mono<AccountDTO> save(AccountDTO accountDTO) {
         AccountEntity accountEntity = accountToAccountEntityMapper.toEntity(accountDTO);
         dynamoDBMapper.save(accountEntity);
+        return Mono.just(accountDTO);
     }
 
-    public AccountDTO findById(String cpfCliente) {
+    public Mono<AccountDTO> findById(String cpfCliente) {
         AccountEntity accountEntity = dynamoDBMapper.load(AccountEntity.class, cpfCliente);
-        return accountEntityToAccountMapper.toDomain(accountEntity);
+        return Mono.justOrEmpty(accountEntityToAccountMapper.toDomain(accountEntity));
     }
 
     public void saveTransfer(TransferAccountDTO transferDTO) {
