@@ -5,9 +5,11 @@ import com.itau.transferencia.application.core.domain.dto.AccountDTO;
 import com.itau.transferencia.application.core.usecases.rules.AbstractRules.BacenAbstractRule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Mono;
 
+@Component
 public class BacenNotificationRule implements BacenAbstractRule {
 
     @Autowired

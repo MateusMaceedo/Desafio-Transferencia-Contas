@@ -50,8 +50,6 @@ dependencies {
 
 	implementation 'com.github.derjust:spring-data-dynamodb:5.1.0'
 
-	implementation 'io.projectreactor:reactor-core:3.4.8'
-
 	implementation 'io.lettuce:lettuce-core:6.3.1.RELEASE'
 
 	implementation 'com.bucket4j:bucket4j-redis:8.2.0'
