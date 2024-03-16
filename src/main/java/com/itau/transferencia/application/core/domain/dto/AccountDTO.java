@@ -10,5 +10,6 @@ import java.io.Serializable;
 public class AccountDTO implements Serializable {
     private String cpfCliente;
     private String numeroContaCorrente;
-    private Double saldoAtual;
+    private String saldoAtual;
+    private String sucesso;
 }

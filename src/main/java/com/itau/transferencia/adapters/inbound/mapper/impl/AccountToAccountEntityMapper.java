@@ -8,11 +8,33 @@ public class AccountToAccountEntityMapper implements EntityMapper<AccountEntity,
 
     @Override
     public AccountDTO toDomain(AccountEntity entity) {
-        return null;
+        AccountDTO accountDTO = new AccountDTO();
+
+        if (entity == null) {
+            return null;
+        }
+
+        accountDTO.setCpfCliente(entity.getCpfCliente());
+        accountDTO.setNumeroContaCorrente(String.valueOf(entity.getNumeroContaCorrente()));
+        accountDTO.setSaldoAtual(entity.getSaldoAtual());
+        accountDTO.setSucesso(entity.getSucesso());
+
+        return accountDTO;
     }
 
     @Override
     public AccountEntity toEntity(AccountDTO domain) {
-        return null;
+        if (domain == null) {
+            return null;
+        }
+
+        AccountEntity accountEntity = new AccountEntity();
+
+        accountEntity.setCpfCliente(domain.getCpfCliente());
+        accountEntity.setNumeroContaCorrente(Double.parseDouble(domain.getNumeroContaCorrente()));
+        accountEntity.setSaldoAtual(domain.getSaldoAtual());
+        accountEntity.setSucesso(domain.getSucesso());
+
+        return accountEntity;
     }
 }

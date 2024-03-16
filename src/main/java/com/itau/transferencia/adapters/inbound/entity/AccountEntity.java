@@ -13,9 +13,16 @@ import lombok.Setter;
 @DynamoDBTable(tableName = "tbt-transferencia-contas")
 public class AccountEntity {
 
-    @DynamoDBHashKey(attributeName = "cod_id")
-    private String id = null;
+    @DynamoDBHashKey(attributeName = "cpf_cliente")
+    private String cpfCliente = null;
 
-    @DynamoDBAttribute(attributeName = "currency")
-    private double currency = 0;
+    @DynamoDBAttribute(attributeName = "numero_conta_corrente")
+    private double numeroContaCorrente = 0;
+
+    @DynamoDBAttribute(attributeName = "saldo_atual")
+    private String saldoAtual = null;
+
+
+    @DynamoDBAttribute(attributeName = "sucesso")
+    private String sucesso = null;
 }
