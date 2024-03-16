@@ -12,3 +12,10 @@ aws:
     dynamodb:
       endpointOverride: http://localhost:4566
   region: us-east-1
+
+amazon:
+  dynamodb:
+    endpoint: "http://localhost:4566"
+  aws:
+    accesskey: "accesskey"
+    secretkey: "secretkey"

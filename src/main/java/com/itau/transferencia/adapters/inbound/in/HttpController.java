@@ -5,6 +5,7 @@ import com.itau.transferencia.application.core.domain.dto.AccountDTO;
 import com.itau.transferencia.application.core.domain.dto.TransferAccountDTO;
 import com.itau.transferencia.application.core.usecases.rules.AbstractRules.TransferService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
@@ -13,7 +14,10 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class HttpController {
 
+    @Autowired
     private final TransferService transferService;
+
+    @Autowired
     private final AccountRepository accountRepository;
 
     @PostMapping

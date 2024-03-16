@@ -1,1 +1,0 @@
-INSERT INTO  account (currency) VALUES (2000);

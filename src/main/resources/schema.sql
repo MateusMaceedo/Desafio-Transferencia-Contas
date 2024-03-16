@@ -1,1 +1,0 @@
-CREATE TABLE IF NOT EXISTS account (id SERIAL PRIMARY KEY, currency float);
