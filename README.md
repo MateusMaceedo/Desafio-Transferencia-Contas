@@ -150,9 +150,18 @@ aws dynamodb create-table \
     --attribute-definitions AttributeName=cpf_cliente,AttributeType=S \
     --key-schema AttributeName=cpf_cliente,KeyType=HASH \
     --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5 \
-    --endpoint-url=http://localhost:4566
+    --endpoint-url=http://localhost:8000
+```
+
+Para listar as tabelas existentes:
+``` bash
+sudo aws dynamodb list-tables --endpoint-url http://localhost:8000
 ```
 
 #### Referências
 - Tom Hombergs - <b>Get your hands Dirty on Clean Architecture </b>
 - Robert Martin - <b> Clean Architect </b>
+
+sudo aws dynamodb create-table     --table-name tbt-transferencia-contas     --attribute-definitions AttributeName=cpf_cliente,AttributeType=S     --key-schema AttributeName=cpf_cliente,KeyType=HASH     --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5     --endpoint-url=http://localhost:8000
+
+sudo aws dynamodb list-tables --endpoint-url http://localhost:8000
