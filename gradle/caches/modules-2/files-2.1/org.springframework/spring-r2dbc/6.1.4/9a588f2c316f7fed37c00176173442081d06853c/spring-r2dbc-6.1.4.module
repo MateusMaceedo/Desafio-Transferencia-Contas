@@ -1,0 +1,138 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.springframework",
+    "module": "spring-r2dbc",
+    "version": "6.1.4",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.6"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework",
+          "module": "spring-beans",
+          "version": {
+            "requires": "6.1.4"
+          }
+        },
+        {
+          "group": "org.springframework",
+          "module": "spring-core",
+          "version": {
+            "requires": "6.1.4"
+          }
+        },
+        {
+          "group": "org.springframework",
+          "module": "spring-tx",
+          "version": {
+            "requires": "6.1.4"
+          }
+        },
+        {
+          "group": "io.projectreactor",
+          "module": "reactor-core",
+          "version": {
+            "requires": "3.6.3"
+          }
+        },
+        {
+          "group": "io.r2dbc",
+          "module": "r2dbc-spi",
+          "version": {
+            "requires": "1.0.0.RELEASE"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "spring-r2dbc-6.1.4.jar",
+          "url": "spring-r2dbc-6.1.4.jar",
+          "size": 149243,
+          "sha512": "743bf6459e19a6bb87ac0c2ee8e18a45cf62b658f5c29db54f84f0e973eda835527854dae83579bc990b6389f76285bcf41596c18f555d7c3bde4cc41b63f747",
+          "sha256": "547a1e4f2bde5530d8364493ba16e20d5039afa7f312ba9c739b11b21c65f1dc",
+          "sha1": "6fbfee8b9b9eb50f0443926135900336dd4d384b",
+          "md5": "020d925988dd91e237289df12eab95e4"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework",
+          "module": "spring-beans",
+          "version": {
+            "requires": "6.1.4"
+          }
+        },
+        {
+          "group": "org.springframework",
+          "module": "spring-core",
+          "version": {
+            "requires": "6.1.4"
+          }
+        },
+        {
+          "group": "org.springframework",
+          "module": "spring-tx",
+          "version": {
+            "requires": "6.1.4"
+          }
+        },
+        {
+          "group": "io.projectreactor",
+          "module": "reactor-core",
+          "version": {
+            "requires": "3.6.3"
+          }
+        },
+        {
+          "group": "io.r2dbc",
+          "module": "r2dbc-spi",
+          "version": {
+            "requires": "1.0.0.RELEASE"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "spring-r2dbc-6.1.4.jar",
+          "url": "spring-r2dbc-6.1.4.jar",
+          "size": 149243,
+          "sha512": "743bf6459e19a6bb87ac0c2ee8e18a45cf62b658f5c29db54f84f0e973eda835527854dae83579bc990b6389f76285bcf41596c18f555d7c3bde4cc41b63f747",
+          "sha256": "547a1e4f2bde5530d8364493ba16e20d5039afa7f312ba9c739b11b21c65f1dc",
+          "sha1": "6fbfee8b9b9eb50f0443926135900336dd4d384b",
+          "md5": "020d925988dd91e237289df12eab95e4"
+        }
+      ]
+    }
+  ]
+}

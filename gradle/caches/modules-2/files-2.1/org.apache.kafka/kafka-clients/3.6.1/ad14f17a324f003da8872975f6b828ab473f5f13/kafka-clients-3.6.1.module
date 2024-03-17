@@ -1,0 +1,90 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "org.apache.kafka",
+    "module": "kafka-clients",
+    "version": "3.6.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.2.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "kafka-clients-3.6.1.jar",
+          "url": "kafka-clients-3.6.1.jar",
+          "size": 5261295,
+          "sha512": "d92ad00a77c82c82de5821d3c68a33db16818460da745906f2e7767f56e96e6d337a80aaabc8a3946fad865169147d6844de8f45fecf10b3df0b75136cf466fe",
+          "sha256": "62668fd9840f6d84fbf345bdbf245b1c160f51ccb42fc89211ecac789640b197",
+          "sha1": "f286782832fee4fca84c2f4158b9258f22fa0b85",
+          "md5": "78143b0ab89c3320acc0eb9e2057e665"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.github.luben",
+          "module": "zstd-jni",
+          "version": {
+            "requires": "1.5.5-1"
+          }
+        },
+        {
+          "group": "org.lz4",
+          "module": "lz4-java",
+          "version": {
+            "requires": "1.8.0"
+          }
+        },
+        {
+          "group": "org.xerial.snappy",
+          "module": "snappy-java",
+          "version": {
+            "requires": "1.1.10.5"
+          }
+        },
+        {
+          "group": "org.slf4j",
+          "module": "slf4j-api",
+          "version": {
+            "requires": "1.7.36"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "kafka-clients-3.6.1.jar",
+          "url": "kafka-clients-3.6.1.jar",
+          "size": 5261295,
+          "sha512": "d92ad00a77c82c82de5821d3c68a33db16818460da745906f2e7767f56e96e6d337a80aaabc8a3946fad865169147d6844de8f45fecf10b3df0b75136cf466fe",
+          "sha256": "62668fd9840f6d84fbf345bdbf245b1c160f51ccb42fc89211ecac789640b197",
+          "sha1": "f286782832fee4fca84c2f4158b9258f22fa0b85",
+          "md5": "78143b0ab89c3320acc0eb9e2057e665"
+        }
+      ]
+    }
+  ]
+}

@@ -1,48 +1,12 @@
-version: '3.1'
+version: '3'
 
 services:
   localstack:
     image: localstack/localstack
     ports:
-      - "4566:4566"
+      - "4566-4584:4566-4584"
     environment:
       - SERVICES=dynamodb
-      - DEBUG=1
+      - DEFAULT_REGION=us-east-1
     volumes:
-      - "./data:/tmp/localstack"
-    networks:
-      - localstack_network
-
-#  redis:
-#    image: redis
-#    container_name: redis_server
-#    ports:
-#      - "6379:6379"
-#    volumes:
-#      - redis_data:/data
-#    command: redis-server --appendonly yes
-
-#  prometheus:
-#    image: prom/prometheus:v2.44.0
-#    container_name: prometheus
-#    ports:
-#      - "9090:9090"
-#    volumes:
-#      - ./sre/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
-
-#  grafana:
-#    image: grafana/grafana:9.5.2
-#    container_name: grafana
-#    ports:
-#      - "3000:3000"
-#    restart: unless-stopped
-#    volumes:
-#      - ./sre/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
-
-#volumes:
-#  redis_data:
-#    driver: local
-
-networks:
-  localstack_network:
-    driver: bridge
+      - "${TMPDIR:-/tmp/localstack}:/tmp/localstack"
