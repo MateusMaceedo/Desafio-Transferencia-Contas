@@ -11,7 +11,7 @@ import com.itau.transferencia.application.core.domain.dto.TransferAccountDTO;
 import reactor.core.publisher.Mono;
 
 public class AccountRepository {
-    
+
     private final DynamoDBMapper dynamoDBMapper;
     private final AccountToAccountEntityMapper accountToAccountEntityMapper;
     private final AccountToAccountEntityMapper accountEntityToAccountMapper;
@@ -25,7 +25,7 @@ public class AccountRepository {
         this.transferToTransferEntityMapper = new TransferToTransferEntityMapper();
     }
 
-    public Mono<AccountDTO> save(AccountDTO accountDTO) {
+    public Mono<AccountDTO> save(AccountDTO accountDTO)  {
         AccountEntity accountEntity = accountToAccountEntityMapper.toEntity(accountDTO);
         dynamoDBMapper.save(accountEntity);
         return Mono.just(accountDTO);

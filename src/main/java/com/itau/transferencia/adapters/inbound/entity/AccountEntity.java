@@ -22,7 +22,6 @@ public class AccountEntity {
     @DynamoDBAttribute(attributeName = "saldo_atual")
     private String saldoAtual = null;
 
-
     @DynamoDBAttribute(attributeName = "sucesso")
     private String sucesso = null;
 }
