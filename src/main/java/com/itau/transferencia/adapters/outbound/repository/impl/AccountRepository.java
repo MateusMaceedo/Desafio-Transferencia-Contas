@@ -11,6 +11,7 @@ import com.itau.transferencia.application.core.domain.dto.TransferAccountDTO;
 import reactor.core.publisher.Mono;
 
 public class AccountRepository {
+    
     private final DynamoDBMapper dynamoDBMapper;
     private final AccountToAccountEntityMapper accountToAccountEntityMapper;
     private final AccountToAccountEntityMapper accountEntityToAccountMapper;

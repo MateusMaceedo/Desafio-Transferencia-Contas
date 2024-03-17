@@ -19,3 +19,7 @@ amazon:
   aws:
     accesskey: "accesskey"
     secretkey: "secretkey"
+
+springdoc:
+  api-docs:
+    path: /api-docs
