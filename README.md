@@ -39,29 +39,29 @@ Para o case, é necessario controlar bem o fluxo, para evitar gargalos e interfe
 Para abordar as necessidades do case, é possível criar uma arquitetura na AWS que atenda a esses requisitos. Abaixo está uma proposta geral para cada um dos pontos mencionados:
 
 1. **Proposta de Escalonamento para Oscilação de Carga**:
-   - Utilize serviços como o Amazon EC2 Auto Scaling para dimensionar automaticamente a capacidade dos seus servidores de acordo com a carga de trabalho. Você pode configurar políticas de escalonamento para aumentar ou diminuir o número de instâncias EC2 com base em métricas de uso, como CPU, memória ou tráfego de rede.
+   - Utilizamos serviços como o Amazon EC2 Auto Scaling para dimensionar automaticamente a capacidade dos seus servidores de acordo com a carga de trabalho. Você pode configurar políticas de escalonamento para aumentar ou diminuir o número de instâncias EC2 com base em métricas de uso, como CPU, memória ou tráfego de rede.
 
 2. **Proposta de Observabilidade**:
    - Use o Amazon CloudWatch para monitorar a saúde do sistema, coletar métricas e registrar logs. Configure alertas no CloudWatch para notificar sobre quaisquer problemas ou eventos importantes.
-   - Considere o uso do AWS X-Ray para rastreamento de solicitações e identificação de gargalos de desempenho em aplicativos distribuídos.
+   - Considerando  o uso do AWS X-Ray para rastreamento de solicitações e identificação de gargalos de desempenho em aplicativos distribuídos.
 
 3. **Justificativa da Escolha do Banco de Dados**:
-   - Escolha um banco de dados que seja altamente escalável e ofereça baixa latência, como o Amazon DynamoDB ou o Amazon Aurora. Esses bancos de dados são totalmente gerenciados pela AWS e podem escalar automaticamente para atender às demandas de tráfego.
+   - Escolhemos o banco de dados que seja altamente escalável e ofereça baixa latência, como o Amazon DynamoDB ou o Amazon Aurora. Esses bancos de dados são totalmente gerenciados pela AWS e podem escalar automaticamente para atender às demandas de tráfego.
 
 4. **Justificativa para o Uso de Caching**:
-   - Use um serviço de cache como o Amazon ElastiCache para armazenar em cache consultas frequentes ao banco de dados. Isso reduzirá a carga no banco de dados e melhorará o desempenho geral do sistema, garantindo que as respostas sejam entregues rapidamente aos clientes.
+   - Usamos o serviço de cache como o Amazon ElastiCache para armazenar em cache consultas frequentes ao banco de dados. Isso reduzirá a carga no banco de dados e melhorará o desempenho geral do sistema, garantindo que as respostas sejam entregues rapidamente aos clientes.
 
 5. **Tempo Total da Requisição até a Resposta ao Cliente**:
-   - Ao projetar a arquitetura, otimize cada camada do sistema para garantir que o tempo total da requisição não exceda 100ms. Isso pode incluir o uso de serviços de cache, dimensionamento automático e otimização do código da aplicação.
+   - Ao projetar a arquitetura, otimizamos cada camada do sistema para garantir que o tempo total da requisição não exceda 100ms. Isso pode incluir o uso de serviços de cache, dimensionamento automático e otimização do código da aplicação.
 
 6. **Capacidade para Suportar Alto Throughput (6 mil tps)**:
-   - Use serviços altamente escaláveis e totalmente gerenciados, como o Amazon API Gateway para gerenciar o tráfego de entrada e distribuir as solicitações para várias instâncias do Amazon EC2 ou serviços serverless, como AWS Lambda, conforme necessário. Isso garantirá que o sistema possa lidar com o alto throughput sem problemas.
+   - Usei serviços altamente escaláveis e totalmente gerenciados, como o Amazon API Gateway para gerenciar o tráfego de entrada e distribuir as solicitações para várias instâncias do Amazon EC2 ou serviços serverless, como AWS Lambda, conforme necessário. Isso garantirá que o sistema possa lidar com o alto throughput sem problemas.
 
 7. **Estratégia em Caso de Falha de Dependência**:
-   - Implemente práticas de resiliência, como a implementação de circuit breakers e retries automáticos em caso de falha de dependências. Além disso, use AWS Step Functions para orquestrar fluxos de trabalho e lidar com situações de erro de forma robusta e escalável.
+   - Implementei práticas de resiliência, como a implementação de circuit breakers e retries automáticos em caso de falha de dependências. Além disso, use AWS Step Functions para orquestrar fluxos de trabalho e lidar com situações de erro de forma robusta e escalável.
 
 8. **Estratégia em Caso de Throttling (HTTP Status 429) do BACEN**:
-   - Implemente um mecanismo de backoff exponencial para lidar com respostas de throttling do BACEN. Isso envolve esperar um período de tempo crescente antes de reenviar a solicitação após receber uma resposta 429. Além disso, configure alertas no CloudWatch para monitorar o número de respostas 429 e ajustar dinamicamente a taxa de solicitações enviadas ao BACEN conforme necessário.
+   - Implementei um mecanismo de backoff exponencial para lidar com respostas de throttling do BACEN. Isso envolve esperar um período de tempo crescente antes de reenviar a solicitação após receber uma resposta 429. Além disso, configure alertas no CloudWatch para monitorar o número de respostas 429 e ajustar dinamicamente a taxa de solicitações enviadas ao BACEN conforme necessário.
 
 #### Composição da arquitetura (Utilização de Patterns)
 
@@ -69,6 +69,11 @@ Para abordar as necessidades do case, é possível criar uma arquitetura na AWS 
 - Algorithm Bucket
 
 #### Composição da arquitetura Infra
+<h1 align="center">
+  <img src="https://github.com/MateusMaceedo/Desafio-Transferencia-Contas/blob/develop/docs/Diagrama%20sem%20nome.drawio.png?raw=true" alt="CaseITUBE.drawio.png">
+</h1>
+
+#### Dash boas no grafana para acompanhar o TPS e transações
 <h1 align="center">
   <img src="https://github.com/MateusMaceedo/Desafio-Transferencia-Contas/blob/develop/docs/Diagrama%20sem%20nome.drawio.png?raw=true" alt="CaseITUBE.drawio.png">
 </h1>
