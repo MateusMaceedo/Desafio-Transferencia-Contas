@@ -70,7 +70,7 @@ Para abordar as necessidades do case, é possível criar uma arquitetura na AWS 
 
 #### Composição da arquitetura Infra
 <h1 align="center">
-  <img src="" alt="CaseITUBE.drawio.png">
+  <img src="https://github.com/MateusMaceedo/Desafio-Transferencia-Contas/blob/develop/docs/Diagrama%20sem%20nome.drawio.png?raw=true" alt="CaseITUBE.drawio.png">
 </h1>
 
 - Performance:
