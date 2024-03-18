@@ -39,6 +39,12 @@ public class HttpController {
         return this.accountRepository.findById(id);
     }
 
+    @GetMapping("/{id}/balance")
+    public Mono<Double> getBalance(@PathVariable("id") String id) {
+        return this.accountRepository.findById(id)
+                .map(AccountDTO::getBalance);
+    }
+
     @PutMapping("/{id}")
     public Mono<AccountDTO> update(@PathVariable("id") String id, @RequestBody AccountDTO account) {
         return this.accountRepository.findById(id)

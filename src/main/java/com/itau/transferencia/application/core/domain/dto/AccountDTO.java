@@ -2,6 +2,8 @@ package com.itau.transferencia.application.core.domain.dto;
 
 import lombok.*;
 import lombok.NoArgsConstructor;
+import reactor.core.publisher.Mono;
+
 import java.io.Serializable;
 
 @NoArgsConstructor
@@ -16,8 +18,13 @@ public class AccountDTO implements Serializable {
     private double limiteDisponivel;
     private double currency;
     private String id;
+    private Mono<Double> mono;
 
     public double getLimiteDisponivel() {
         return limiteDisponivel;
+    }
+
+    public Double getBalance() {
+        return mono.block();
     }
 }
