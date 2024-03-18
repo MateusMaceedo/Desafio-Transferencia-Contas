@@ -1,7 +1,11 @@
 package com.itau.transferencia.application.core.usecases.rules;
 
 import com.itau.transferencia.application.core.domain.dto.AccountDTO;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class BacenNotification {
 
     private final AccountDTO fromAccount;
@@ -12,17 +16,5 @@ public class BacenNotification {
         this.fromAccount = fromAccount;
         this.toAccount = toAccount;
         this.amount = amount;
-    }
-
-    public AccountDTO getFromAccount() {
-        return fromAccount;
-    }
-
-    public AccountDTO getToAccount() {
-        return toAccount;
-    }
-
-    public double getAmount() {
-        return amount;
     }
 }

@@ -68,10 +68,10 @@ Para abordar as necessidades do case, é possível criar uma arquitetura na AWS 
 - Hexagonal Arquitect
 - Algorithm Bucket
 
-#### Testes
-- Unitarios
-- Integração
-- Mutant
+#### Composição da arquitetura Infra
+<h1 align="center">
+  <img src="" alt="CaseITUBE.drawio.png">
+</h1>
 
 - Performance:
 Temos um script de teste de carga que cria uma quantidade variável de usuários virtuais que executam uma série de operações:

@@ -21,7 +21,7 @@ public class WireMockConfiguration {
                         .withStatus(OK.value())
                         .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                         .withBody("""
-                        {"name":"Mateus"}""")
+                        {"name":"Mateus Macedo"}""")
                 ));
 
         mockServer.stubFor(post("/bc")

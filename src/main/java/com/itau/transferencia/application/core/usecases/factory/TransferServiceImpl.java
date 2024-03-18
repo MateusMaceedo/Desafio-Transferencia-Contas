@@ -44,7 +44,7 @@ public class TransferServiceImpl implements TransferService {
         this.cacheAbstractRule = cacheAbstractRule;
         this.bucketAbstractRule = bucketAbstractRule;
         this.bucket = createBucket();
-        this.redisCommands = redisClientBuilder.redisClient.connect().sync();
+        this.redisCommands = redisClientBuilder.connection().sync();
     }
 
     private Bucket createBucket() {
@@ -53,19 +53,35 @@ public class TransferServiceImpl implements TransferService {
     }
 
     @Transactional
-    public Mono<AccountDTO> transfer(Mono<AccountDTO> fromAccount, Mono<AccountDTO> toAccount, double amount) {
-        return fromAccount.flatMap(account -> {
-            for (TransferAbstractRule rule : transferRules) {
-                rule.check(account, amount);
-            }
-            return subtract(fromAccount, amount)
-                    .then(add(toAccount, amount))
-                    .flatMap(result -> {
-                        // Notificar o BACEN após a transferência
-                        return notifyBacenSync(fromAccount.block(), toAccount.block(), amount)
-                                .thenReturn(result);
-                    });
-        });
+    public Mono<AccountDTO> transfer(Mono<AccountDTO> fromAccountMono, Mono<AccountDTO> toAccountMono, double amount) {
+        return fromAccountMono.zipWith(toAccountMono)
+                .flatMap(accounts -> {
+                    AccountDTO fromAccount = accounts.getT1();
+                    AccountDTO toAccount = accounts.getT2();
+
+                    // Verificar se fromAccount e toAccount não são nulos
+                    if (fromAccount == null || toAccount == null) {
+                        return Mono.error(new IllegalArgumentException("Accounts cannot be null"));
+                    }
+
+                    for (TransferAbstractRule rule : transferRules) {
+                        rule.check(fromAccount, amount);
+                    }
+
+                    // Tratar erros no fluxo do Mono
+                    return subtract(fromAccountMono, amount)
+                            .then(add(toAccountMono, amount))
+                            .flatMap(result -> {
+                                // Notificar o BACEN após a transferência
+                                return notifyBacenSync(fromAccount, toAccount, amount)
+                                        .thenReturn(result);
+                            })
+                            // Tratamento de erros no fluxo do Mono
+                            .onErrorResume(throwable -> {
+                                // Log do erro ou tratamento adicional
+                                return Mono.error(new RuntimeException("Error during transfer", throwable));
+                            });
+                });
     }
 
     private Mono<AccountDTO> subtract(final Mono<AccountDTO> accountModel, final double value) {

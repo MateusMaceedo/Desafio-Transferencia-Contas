@@ -7,14 +7,14 @@ import java.util.List;
 public class BusinessException extends Exception {
 
     @Getter
-    List<String> listOfErrors;
-    private List<String> listOfError = new ArrayList<>();
+    private final List<String> listOfErrors;
 
     public BusinessException(String errorMessage){
         super(errorMessage);
+        this.listOfErrors = new ArrayList<>(); // Inicialização da lista de erros
     }
 
     public void addError(String s) {
-        listOfError.add(s);
+        listOfErrors.add(s);
     }
 }
