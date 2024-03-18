@@ -112,6 +112,12 @@ curl -X POST \
 
 ```
 
+#### Consulta de saldo:
+``` bash
+
+curl -X GET http://localhost:8080/account/{id}/balance
+```
+
 #### Transferir dinheiro entre contas:
 ``` bash
 
