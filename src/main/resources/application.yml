@@ -10,12 +10,12 @@ aws:
   execution: false
   endpoints:
     dynamodb:
-      endpointOverride: http://localhost:4566
+      endpointOverride: http://localhost:8000
   region: us-east-1
 
 amazon:
   dynamodb:
-    endpoint: "http://localhost:4566"
+    endpoint: "http://localhost:8000"
   aws:
     accesskey: "accesskey"
     secretkey: "secretkey"

@@ -11,7 +11,7 @@ import org.springframework.http.HttpStatus;
 @ControllerAdvice
 public class HandleErrorController {
     @ExceptionHandler(value = BusinessException.class)
-    ResponseEntity<ErrorDTO> handleValidPasswordError (BusinessException buisEx) {
+    ResponseEntity<ErrorDTO> handleValidTransferError (BusinessException buisEx) {
         ErrorDTO error = new ErrorDTO(buisEx.getListOfErrors(), buisEx.getMessage());
         return new ResponseEntity<ErrorDTO>(error, new HttpHeaders(), HttpStatus.BAD_REQUEST);
     }

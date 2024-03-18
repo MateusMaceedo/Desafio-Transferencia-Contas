@@ -3,6 +3,7 @@
 Projeto desenvolvido para o desafio do Itaú.
 
 Nele esta contido uma solução tecnica e arquitetural, que permiti os clientes do Itau realizar operações de ***Consulta de Saldo e Transfência entre contas***. A solução é resiliente, tem alta disponilibidade e suporta o volumo de 6 mil transações por segundo, com uma latência abaixo de 100ms. Abaixo na documentação, deixarei o teste de performance usando o K6 realizado na aplicação.
+>Obs: Adicionei duas funcionalidades, para facilitar os testes.
 
 #### Instalação
 - Java 17 Correto (https://aws.amazon.com/pt/corretto/)
@@ -158,10 +159,11 @@ Para listar as tabelas existentes:
 sudo aws dynamodb list-tables --endpoint-url http://localhost:8000
 ```
 
+Para listar os dados da tabela:
+``` bash
+sudo aws dynamodb scan  --endpoint-url http://localhost:8000 --table-name tbt-transferencia-contas
+
+```
 #### Referências
 - Tom Hombergs - <b>Get your hands Dirty on Clean Architecture </b>
 - Robert Martin - <b> Clean Architect </b>
-
-sudo aws dynamodb create-table     --table-name tbt-transferencia-contas     --attribute-definitions AttributeName=cpf_cliente,AttributeType=S     --key-schema AttributeName=cpf_cliente,KeyType=HASH     --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5     --endpoint-url=http://localhost:8000
-
-sudo aws dynamodb list-tables --endpoint-url http://localhost:8000

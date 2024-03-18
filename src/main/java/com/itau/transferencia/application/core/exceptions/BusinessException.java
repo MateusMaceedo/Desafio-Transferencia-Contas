@@ -1,16 +1,20 @@
 package com.itau.transferencia.application.core.exceptions;
 
+import lombok.Getter;
+import java.util.ArrayList;
 import java.util.List;
 
 public class BusinessException extends Exception {
-    List<String> listOfErrors;
 
-    public BusinessException(String errorMessage, List<String> listOfErrors){
+    @Getter
+    List<String> listOfErrors;
+    private List<String> listOfError = new ArrayList<>();
+
+    public BusinessException(String errorMessage){
         super(errorMessage);
-        this.listOfErrors = listOfErrors;
     }
 
-    public List<String> getListOfErrors(){
-        return listOfErrors;
+    public void addError(String s) {
+        listOfError.add(s);
     }
 }
