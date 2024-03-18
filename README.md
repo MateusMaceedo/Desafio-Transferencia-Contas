@@ -26,13 +26,13 @@ Para a execução do Docker, rode o seguinte comando:
 #### Projeto
 O projeto foi desenvolvido com as seguintes tecnologias:
 
-- Java 17
-- Spring Boot 3
-- WebFlux (Módulo Spring Webflux que permite trabalhar com programação reativa em aplicações Java com Spring)
-- DynamoDB
-- K6
-- Docker
-- Junit
+- #### Java 17
+- #### Spring Boot 3
+- #### WebFlux (Módulo Spring Webflux que permite trabalhar com programação reativa em aplicações Java com Spring)
+- #### DynamoDB
+- #### K6
+- #### Docker
+- #### Junit
 
 Para o case, é necessario controlar bem o fluxo, para evitar gargalos e interferências bloqueantes das requisições. Utilizei o Webflux, para trabalhar com a programação reativa do Java, assim podemos usar a propria JVM e recursos da propria plataforma, para o controle do TPS, sem a necessidade de aumentar o Scaling horizontal ou vertical da nossa instância EC2, pois utilizaremos apenas para hospedar a nossa aplicação, o controle de theads e tps, vamos controlar via app, assim podemos organizar melhor as responsabilidades e evitar custos e ter uma escalabilidade mais assertiva.
 
@@ -75,7 +75,7 @@ Para abordar as necessidades do case, é possível criar uma arquitetura na AWS 
 
 #### Dash boas no grafana para acompanhar o TPS e transações
 <h1 align="center">
-  <img src="https://github.com/MateusMaceedo/Desafio-Transferencia-Contas/blob/develop/docs/Diagrama%20sem%20nome.drawio.png?raw=true" alt="CaseITUBE.drawio.png">
+  <img src="https://github.com/MateusMaceedo/Desafio-Transferencia-Contas/blob/develop/docs/grafanaM1.PNG?raw=true" alt="CaseITUBE.drawio.png">
 </h1>
 
 - Performance:
